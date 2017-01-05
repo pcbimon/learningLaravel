@@ -1,6 +1,7 @@
 <?php
 use App\Post;
 use App\User;
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -168,11 +169,20 @@ Route::get('/delete', function()
 //   return Post::find($id)->user->name;
 // });
 //One to Many Relationship
-Route::get('/posts', function()
+// Route::get('/posts', function()
+// {
+//   $user = User::find(1);
+//   foreach ($user->posts as $post) {
+//    echo $post->title."</br>";
+//   }
+// });
+//Many to Many Relationship
+Route::get('/user/{id}/role', function($id)
 {
-  $user = User::find(1);
-  foreach ($user->posts as $post) {
-   echo $post->title."</br>";
-  }
+  $user = User::find($id)->roles()->orderBy('id','desc')->get();
+  return $user;
+  // foreach ($user->roles as $role) {
+  //   return $role->name;
+  // }
 
 });
