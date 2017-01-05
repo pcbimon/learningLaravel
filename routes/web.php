@@ -197,10 +197,18 @@ Route::get('/delete', function()
 //   }
 // });
 //แสดงชื่อเรื่องของคนที่อยู่ในประเทศที่ id = 1
-Route::get('/user/country', function()
+// Route::get('/user/country', function()
+// {
+//   $country = Country::find(1);
+//   foreach ($country->posts as $post) {
+//     return $post->title;
+//   }
+// });
+//Polymorphic Relationship
+Route::get('/user/photos', function()
 {
-  $country = Country::find(1);
-  foreach ($country->posts as $post) {
-    return $post->title;
+  $user = User::find(1);
+  foreach ($user->photos as $photo) {
+    return $photo->path;
   }
 });
