@@ -2,6 +2,7 @@
 use App\Post;
 use App\User;
 use App\Role;
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -187,11 +188,19 @@ Route::get('/delete', function()
 //
 // });
 //Accesing to intermediate table /pivot
-Route::get('/user/pivot', function()
+// Route::get('/user/pivot', function()
+// {
+//   $user = User::find(1);
+//   foreach ($user->roles as $role) {
+//     # code...
+//     return $role->pivot->created_at;
+//   }
+// });
+//แสดงชื่อเรื่องของคนที่อยู่ในประเทศที่ id = 1
+Route::get('/user/country', function()
 {
-  $user = User::find(1);
-  foreach ($user->roles as $role) {
-    # code...
-    return $role->pivot->created_at;
+  $country = Country::find(1);
+  foreach ($country->posts as $post) {
+    return $post->title;
   }
 });
