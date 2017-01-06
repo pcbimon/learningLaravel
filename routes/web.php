@@ -3,6 +3,10 @@ use App\Post;
 use App\User;
 use App\Role;
 use App\Country;
+use App\Photo;
+use App\Tag;
+use App\Tagable;
+use App\Video;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -205,10 +209,24 @@ Route::get('/delete', function()
 //   }
 // });
 //Polymorphic Relationship
-Route::get('/user/photos', function()
+// Route::get('/user/photos', function()
+// {
+//   $user = User::find(1);
+//   foreach ($user->photos as $photo) {
+//     return $photo->path;
+//   }
+// });
+// Route::get('/photo/{id}/user', function($id)
+// {
+//   $photo = Photo::findOrFail($id);
+//     return $photo->imageable;
+// });
+//Polymorphic Many to many Relationship
+Route::get('/post/tag', function()
 {
-  $user = User::find(1);
-  foreach ($user->photos as $photo) {
-    return $photo->path;
+  $post = Post::find(1);
+  foreach ($post->tags as $tag) {
+    # code...
+    return $tag->name;
   }
 });
