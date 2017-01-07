@@ -43,17 +43,17 @@ Route::get('/', function () {
 //   return "This url is ". $url;
 // }));
 // Route::get('/post/{id}','PostController@index');
-Route::resource('posts','PostController');
-Route::get('/contact','PostController@contact');
-Route::get('post/{id}/{name}/{password}','PostController@show_post');
+// Route::resource('posts','PostController');
+// Route::get('/contact','PostController@contact');
+// Route::get('post/{id}/{name}/{password}','PostController@show_post');
 //---------------------------------------------------------------------
 //                          SQL QUERY
 //---------------------------------------------------------------------
-Route::get('/insert', function()
-{
-  DB::insert('Insert into posts(title,content) value(?,?)',['Laravel is awesome with Edwin','Laravel news']);
-
-});
+// Route::get('/insert', function()
+// {
+//   DB::insert('Insert into posts(title,content) value(?,?)',['Laravel is awesome with Edwin','Laravel news']);
+//
+// });
 // Route::get('/read', function()
 // {
 //   $result = DB::select('select * from post where id = ?',[1]);
@@ -107,30 +107,30 @@ Route::get('/insert', function()
 //     return $posts;
 // });
 
-Route::get('/basicinsert', function()
-{
-  $post = new Post; //ถ้า $post =  Post::find(2); เป็น update
-  $post->title = 'New 1';
-  $post->content = 'Laravel 1';
-  $post->save();
-});
+// Route::get('/basicinsert', function()
+// {
+//   $post = new Post; //ถ้า $post =  Post::find(2); เป็น update
+//   $post->title = 'New 1';
+//   $post->content = 'Laravel 1';
+//   $post->save();
+// });
 
-Route::get('/create', function()
-{
-  Post::create(['title'=>'The create method1','content'=>'WoW 1']);
-  Post::create(['title'=>'The create method2','content'=>'WoW 2']);
-});
+// Route::get('/create', function()
+// {
+//   Post::create(['title'=>'The create method1','content'=>'WoW 1']);
+//   Post::create(['title'=>'The create method2','content'=>'WoW 2']);
+// });
 //
 // Route::get('/update', function()
 // {
 //   Post::where('id',2)->where('is_admin', '0')->update(['title'=>'New PHP Title','content'=>'New Content']);
 // });
 //
-Route::get('/delete', function()
-{
-  $post = Post::find(4);
-  $post->delete();
-});
+// Route::get('/delete', function()
+// {
+//   $post = Post::find(4);
+//   $post->delete();
+// });
 // Route::get('/delete2', function()
 // {
 //   Post::destroy([4,5]);
@@ -222,11 +222,15 @@ Route::get('/delete', function()
 //     return $photo->imageable;
 // });
 //Polymorphic Many to many Relationship
-Route::get('/post/tag', function()
-{
-  $post = Post::find(1);
-  foreach ($post->tags as $tag) {
-    # code...
-    return $tag->name;
-  }
-});
+// Route::get('/post/tag', function()
+// {
+//   $post = Post::find(1);
+//   foreach ($post->tags as $tag) {
+//     # code...
+//     return $tag->name;
+//   }
+// });
+//---------------------------------------------------------------------
+//                          CRUD APP
+//---------------------------------------------------------------------
+Route::resource('/post','PostController');
