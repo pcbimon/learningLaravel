@@ -16,6 +16,7 @@ class Post extends Model
 
     //ใช้คู่กับ create
     public $fillable = [
+      'user_id',
       'title',
       'content',
     ];
