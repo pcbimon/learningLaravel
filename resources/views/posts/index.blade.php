@@ -5,6 +5,7 @@
     <li><a href="{!!route('post.show',$post->id)!!}">{{$post->title}}</a></li>
   @endforeach
 </ul>
+
 @endsection
 @section('footer')
 
