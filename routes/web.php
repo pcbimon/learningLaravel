@@ -254,4 +254,11 @@ Route::group(['middleware'=>'web'],function(){
     $user = User::find(1);
     echo $user->name;
   });
+  //Mutator
+  Route::get('/setname', function()
+  {
+    $user = User::find(1);
+    $user->name = 'william';
+    $user->save();
+  });
 });

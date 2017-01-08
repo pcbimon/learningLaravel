@@ -48,4 +48,8 @@ class User extends Authenticatable
       // return ucfirst($value); //Uppercase for first char in string value
       return strtoupper($value); //Uppercase for all char in string value
     }
+    public function setNameAttribute($value)
+    {
+      $this->attributes['name'] = strtoupper($value);//change value(update)
+    }
 }
