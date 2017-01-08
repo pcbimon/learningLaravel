@@ -18,7 +18,10 @@ class PostController extends Controller
     {
         //
         // return "It's working.The number is ".$id;
-      $posts = Post::all();
+      // $posts = Post::all();
+      // $posts = Post::latest()->get(); //get last item to insert to first order
+      // $posts = Post::orderBy('id','asc')->get(); //get first item to insert to first order
+      $posts = Post::latest(); //call function scopeLatest in Post
       return view('posts.index',compact('posts'));
     }
 
