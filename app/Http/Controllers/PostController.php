@@ -42,8 +42,7 @@ class PostController extends Controller
     {
       //validate
       $this->validate($request,[
-        'title'=>'required',
-        'content'=>'required'
+        'title'=>'required|max:4'
       ]);
         //
         // return $request->all();
