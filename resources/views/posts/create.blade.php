@@ -12,14 +12,14 @@
   {!! Form::text('title',null,['class'=>'form-control']) !!}
   {{-- <input type="hidden" name="_token" value="{!! csrf_token() !!}"> --}}
 </div>
- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+
   {{-- <input type="text" name="title" value=""> --}}
   <div class="form-group{{ $errors->has('inputname') ? ' has-error' : '' }}">
       {!! Form::label('inputname', 'File :') !!}
       {!! Form::file('file', ['required' => 'required']) !!}
-      <p class="help-block">Help block text</p>
       <small class="text-danger">{{ $errors->first('inputname') }}</small>
   </div>
+  {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
 {!! Form::close() !!}
 {{-- error --}}
 @if (count($errors)>0)

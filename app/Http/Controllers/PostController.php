@@ -54,11 +54,27 @@ class PostController extends Controller
         // $input = $request->all();
         // $input['title'] = $request->title;
 
-        $post = new Post;
-        $post->title = $request->title;
-        $post->save();
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->save();
+        //
+        // return redirect('/post');
 
-        return redirect('/post');
+        //get data of file function
+        // $file = $request->file('file');
+        // echo "<br />";
+        // echo $file->getClientOriginalName();
+        // echo "<br />";
+        // echo $file->getClientSize();
+        // echo "<br />";
+        $input = $request->all();
+        if ($file = $request->file('file')) {
+          $name = $file->getClientOriginalName();
+          $file->move('images',$name);
+          $input['path']=$name;//file <--name of column
+
+        }
+        Post::create($input);
     }
 
     /**
