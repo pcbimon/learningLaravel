@@ -7,6 +7,7 @@ use App\Photo;
 use App\Tag;
 use App\Tagable;
 use App\Video;
+use Carbon\Carbon; //import for date function
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -235,4 +236,16 @@ Route::get('/', function () {
 //---------------------------------------------------------------------
 Route::group(['middleware'=>'web'],function(){
   Route::resource('/post','PostController');
+  //Date function
+  Route::get('/dates', function()
+  {
+    $date = new DateTime('+1 week');
+    echo $date->format('m-d-Y');
+    echo "<br />";
+    echo Carbon::now()->addDay(10)->diffForHumans();
+    echo "<br />";
+    echo Carbon::now()->subMonth(5)->diffForHumans();
+    echo "<br />";
+    echo Carbon::now()->yesterday();
+  });
 });
