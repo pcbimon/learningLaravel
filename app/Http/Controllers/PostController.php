@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +40,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+      //validate
+      $this->validate($request,[
+        'title'=>'required',
+        'content'=>'required'
+      ]);
         //
         // return $request->all();
         // Post::create($request->all());
