@@ -248,4 +248,10 @@ Route::group(['middleware'=>'web'],function(){
     echo "<br />";
     echo Carbon::now()->yesterday();
   });
+  //Accessor
+  Route::get('/getname', function()
+  {
+    $user = User::find(1);
+    echo $user->name;
+  });
 });
