@@ -233,4 +233,6 @@ Route::get('/', function () {
 //---------------------------------------------------------------------
 //                          CRUD APP
 //---------------------------------------------------------------------
-Route::resource('/post','PostController');
+Route::group(['middleware'=>'web'],function(){
+  Route::resource('/post','PostController');
+});

@@ -12,6 +12,16 @@
  {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
   {{-- <input type="text" name="title" value=""> --}}
 {!! Form::close() !!}
+{{-- error --}}
+@if (count($errors)>0)
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
 @endsection
 @section('footer')
 
