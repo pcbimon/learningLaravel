@@ -17,8 +17,9 @@ class PostController extends Controller
     public function index()
     {
         //
-        // return "It's working.The number is ".$id;
+      // return "It's working.The number is ".$id;
       // $posts = Post::all();
+
       // $posts = Post::latest()->get(); //get last item to insert to first order
       // $posts = Post::orderBy('id','asc')->get(); //get first item to insert to first order
       $posts = Post::latest(); //call function scopeLatest in Post
